@@ -18,7 +18,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'tableOfcontents',
+        name: 'tableOfContents',
         message: 'Provide the Table of Contents (optional)',
     },
     {
@@ -61,9 +61,42 @@ function writeToFile(fileName, data) {
     });
     
 }
-
 // TODO: Create a function to initialize app
-function init() {};
+
+function init() {
+    inquirer.prompt(questions).then((answers) => {
+        const readmeContent = `
+        # ${answers.projectName}
+        
+        ## Description
+        ${answers.description}
+        
+        ## Table of Contents
+        ${answers.tableOfContents}
+        
+        ## Installation
+        ${answers.installation}
+        
+        ## Usage
+        ${answers.usage}
+        
+        ## Contributing
+        ${answers.contributing}
+        
+        ## Tests
+        ${answers.tests}
+        
+        ## License
+        ${answers.license}
+        
+        ## Questions
+        ${answers.questions}
+        `;
+
+        writeToFile('README.md', readMeContent);
+    }).catch((error) => console.error("Error initializing app:", error));
+}
+
 // Function call to initialize app
 init();
 
