@@ -59,7 +59,7 @@ function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         err ? console.log(err) : console.log(`${fileName} has been created!`)
     });
-    
+
 }
 // TODO: Create a function to initialize app
 
@@ -93,7 +93,7 @@ function init() {
         ${answers.questions}
         `;
 
-        writeToFile('README.md', readMeContent);
+        writeToFile('README.md', readmeContent);
     }).catch((error) => console.error("Error initializing app:", error));
 }
 
