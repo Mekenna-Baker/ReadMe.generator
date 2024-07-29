@@ -34,7 +34,7 @@ const questions = [
     {
         type: 'input',
         name: 'contributing',
-        message: 'What are the contributing guidelines',
+        message: 'What are the contributing guidelines?',
     },
     {
         type: 'input',
@@ -51,11 +51,18 @@ const questions = [
         name: 'questions',
         message: 'Provide your contact information for questions.',
     },
+    {
+        type: 'input',
+        name: 'fileName',
+        message: 'Please enter the name of the file to save the README (README.MD):',
+        default: 'README.md',
+    },
 ];
 
 // TODO: Create a function to write README file
 
 function writeToFile(fileName, data) {
+    console.log(`Writing  to file: ${fileName}`);
     fs.writeFile(fileName, data, (err) => {
         err ? console.log(err) : console.log(`${fileName} has been created!`)
     });
@@ -93,7 +100,8 @@ function init() {
         ${answers.questions}
         `;
 
-        writeToFile('README.md', readmeContent);
+        console.log(`Provided filename: ${answers.fileName}`);
+        writeToFile(answers.fileName, readmeContent);
     }).catch((error) => console.error("Error initializing app:", error));
 }
 
