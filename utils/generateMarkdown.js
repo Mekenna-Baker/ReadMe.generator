@@ -2,6 +2,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch (license) {
+    //commonly used licenses, get links from github//
     case 'MIT':
       return '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
       break;
@@ -26,6 +27,7 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
+  //links from clicking on badge//
   switch (license) {
     case 'MIT':
       return 'https://opensource.org/license/MIT'
@@ -65,9 +67,42 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  const licenseBadge = renderLicenseBadge(data.license); 
+  const licenseSection = renderLicenseSection(data.license);
+
   return `# ${data.title}
 
-`;
+  ${licenseBadge}
+
+  ## Description
+  ${data.description}
+
+  ## Table of Contents
+
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+
+  ## Installation
+  ${data.installation}
+
+  ## Usage
+  ${data.usage}
+
+  ## Contributing
+  ${data.contributing}
+
+  ## Tests
+  ${data.tests}
+
+  ${licenseSection}
+
+  ## Questions
+  If you have any questions about the repository, contact me at ${data.email}. You can find more of my work at [${data.github}](https://github.com/${data.github}).`;
 }
 
 export default generateMarkdown;
