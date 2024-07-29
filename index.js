@@ -42,10 +42,20 @@ const questions = [
         message: 'What are the test instructions?',
     },
     {
-        type: 'input',
+        type: 'list',
         name: 'license',
-        message: 'What license does your project have?',
+        message: //replace with license options//,
     },
+    {   type: 'input',
+        name: 'github',
+        message: 'Enter your Github username:',
+
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Enter  your email address:'
+    }.
     {
         type: 'input',
         name: 'questions',
