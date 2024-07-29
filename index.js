@@ -44,7 +44,7 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        message: //replace with license options 
+        message: ['MIT', 'GPL v3', 'Apache 2.0', 'BSD3-Clause', 'Mozilla Public 2.0'],
     },
     {   type: 'input',
         name: 'github',
@@ -55,7 +55,7 @@ const questions = [
         type: 'input',
         name: 'email',
         message: 'Enter  your email address:'
-    }.
+    },
     {
         type: 'input',
         name: 'questions',
