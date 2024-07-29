@@ -44,7 +44,7 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        message: //replace with license options//,
+        message: //replace with license options 
     },
     {   type: 'input',
         name: 'github',
