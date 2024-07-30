@@ -22,6 +22,9 @@ In order to use this project, the repository would need to be cloned. Once clone
 
 Once installed, within your command line you would run 'node index.js'
 
+[Watch the video](/Readme.generator.mp4)
+
+
 video link
 
 ## Credits
