@@ -2,6 +2,7 @@
 
 import inquirer from 'inquirer'; //for the prompts
 import fs from 'fs'; //to write file
+import generateMarkdown from './generateMarkdown.js'
 
 // TODO: Create an array of questions for user input
 
@@ -44,7 +45,7 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        message: ['MIT', 'GPL v3', 'Apache 2.0', 'BSD3-Clause', 'Mozilla Public 2.0'],
+        choices: ['MIT', 'GPL v3', 'Apache 2.0', 'BSD3-Clause', 'Mozilla Public 2.0', 'None'],
     },
     {   type: 'input',
         name: 'github',
@@ -82,37 +83,11 @@ function writeToFile(fileName, data) {
 
 function init() {
     inquirer.prompt(questions).then((answers) => {
-        const readmeContent = `
-        # ${answers.projectName}
-        
-        ## Description
-        ${answers.description}
-        
-        ## Table of Contents
-        ${answers.tableOfContents}
-        
-        ## Installation
-        ${answers.installation}
-        
-        ## Usage
-        ${answers.usage}
-        
-        ## Contributing
-        ${answers.contributing}
-        
-        ## Tests
-        ${answers.tests}
-        
-        ## License
-        ${answers.license}
-        
-        ## Questions
-        ${answers.questions}
-        `;
-
+        const readmeContent = generateMarkdown(answers);
         console.log(`Provided filename: ${answers.fileName}`);
         writeToFile(answers.fileName, readmeContent);
     }).catch((error) => console.error("Error initializing app:", error));
+
 }
 
 // Function call to initialize app
